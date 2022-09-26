@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Whatsapp_home.dart';
+import 'ListAllFootbal.dart';
 import 'google_classroom/home.dart';
 
 class home extends StatefulWidget {
@@ -9,15 +9,14 @@ class home extends StatefulWidget {
   State<home> createState() => _homeState();
 }
 
-class _homeState extends State<home> with SingleTickerProviderStateMixin{
-
+class _homeState extends State<home> with SingleTickerProviderStateMixin {
   late TabController _controller;
   int _selectedIndex = 0;
 
   List<Widget> list = [
-    Tab(icon: Icon(Icons.message_outlined)),
-    Tab(icon: Icon(Icons.call_outlined)),
-    Tab(icon: Icon(Icons.circle_outlined)),
+    const Tab(icon: Icon(Icons.sports_basketball_sharp)),
+    const Tab(icon: const Icon(Icons.call_outlined)),
+    const Tab(icon: Icon(Icons.circle_outlined)),
   ];
 
   @override
@@ -38,27 +37,40 @@ class _homeState extends State<home> with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            onTap: (index) {
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
-            controller: _controller,
-            tabs: list,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(130.0), // here the desired height
+          child: AppBar(
+            backgroundColor: const Color(0xFF131C3C),
+            bottom: TabBar(
+              onTap: (index) {
+                // Should not used it as it only called when tab options are clicked,
+                // not when user swapped
+              },
+              controller: _controller,
+              tabs: list,
+              indicator: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.green,
+                    width: 2.0,
+                  ),
+                ),
+              ),
+            ),
+            title: const Text('\n\nFOOTBALL\n',style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),),
+            centerTitle: true,
           ),
-          title: Text('Tabs Demo'),
         ),
         body: TabBarView(
           controller: _controller,
           children: [
-            ListAllFootbal(),
-            dashboard(),
+            const ListAllFootbal(),
+            const dashboard(),
             Center(
                 child: Text(
-                  _selectedIndex.toString(),
-                  style: TextStyle(fontSize: 40),
-                )),
+              _selectedIndex.toString(),
+              style: const TextStyle(fontSize: 40),
+            )),
           ],
         ),
       ),

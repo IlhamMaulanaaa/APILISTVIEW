@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_native_splash: any
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -37,9 +37,20 @@ dependencies:
   http:
   url_launcher: ^6.1.5
 
+  # flutter_native_splash-development.yaml
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logofootball.png
+  branding: assets/logofootball.png
+  color_dark: "#121212"
+  image_dark: assets/logofootball.png
+  branding_dark: assets/logofootball.png
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_svg: ^1.1.4
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -48,6 +59,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   url_launcher: ^6.1.5
+  flutter_neumorphic: ^3.0.3
+
 
 
 # For information on the generic Dart part of this file, see the
@@ -63,11 +76,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/background_class1.png
+   - assets/
    - images/background_class2.png
-   - images/background_class3.png
-   - images/background_class4.png
-   - images/background_class5.png
+   - images/
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
